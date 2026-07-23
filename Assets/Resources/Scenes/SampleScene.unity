@@ -303,6 +303,14 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: maxBlockCooldown
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: maxBlockDuration
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4524470750991164379, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.495

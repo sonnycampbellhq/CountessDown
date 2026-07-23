@@ -28,7 +28,6 @@ public class ShooterController : MonoBehaviour
         if (Time.time > (shots+1)*reloadTime)
         {
             shots++;
-            Debug.Log("shots:"+shots+"  Time:"+Time.time);
             Instantiate(projectile).
                 GetComponent<ProjectileController>().
                     SetProjectileController(transform.position, direction/direction.magnitude, projectileSpeed, projectileSize, knockback);
