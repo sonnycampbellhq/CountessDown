@@ -300,6 +300,14 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: blockCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: blockDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: movementSpeed
       value: 11
       objectReference: {fileID: 0}

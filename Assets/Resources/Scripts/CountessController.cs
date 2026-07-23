@@ -16,12 +16,12 @@ public class CountessController : MonoBehaviour
     Vector2 knockbackVelocity;
 
     bool isBlocking = false;
-    int blockCooldown=0;
+    bool canBlock = true;
+    float lastBlock=-5;
     [SerializeField]
-    int maxBlockCooldown;
-    int blockDuration=0;
+    float blockCooldown;
     [SerializeField]
-    int maxBlockDuration;
+    float blockDuration;
     
 
 
@@ -34,41 +34,30 @@ public class CountessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (blockCooldown <= 0)
+        if (canBlock)
         {
-            isBlocking = Input.GetKeyDown(KeyCode.Space);
-            if (isBlocking)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                blockCooldown=maxBlockCooldown;
-                blockDuration=maxBlockDuration;
-                Debug.Log("START");
-                GetComponent<SpriteRenderer>().color=Color.blue;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().color=Color.green;
+                lastBlock = Time.time;
+                isBlocking=true;
+                canBlock=false;
+                Debug.Log("Blocking");
             }
         }
         else
         {
-            blockCooldown--;
-            if (blockDuration <= 0)
+            float timeSinceBlock=Time.time-lastBlock;
+            if (timeSinceBlock > blockCooldown)
             {
-                if (isBlocking)
-                {
-                    isBlocking=false;
-                    Debug.Log("STOP");
-                    GetComponent<SpriteRenderer>().color=Color.black;
-                }
+                canBlock=true;
+                Debug.Log("Can block");
             }
-            else
+            else if(timeSinceBlock > blockDuration&&isBlocking)
             {
-                blockDuration--;
+                isBlocking=false;
+                Debug.Log("On cooldown");
             }
         }
-        
-
-
 
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
