@@ -8,6 +8,12 @@ TagManager:
   - Projectile
   - Down
   - Attack
+  - Countess
+  - Wall
+  - Spike
+  - Pit
+  - Health
+  - Money
   layers:
   - Default
   - TransparentFX

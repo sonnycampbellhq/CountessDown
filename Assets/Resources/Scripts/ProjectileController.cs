@@ -42,4 +42,12 @@ public class ProjectileController : MonoBehaviour
     {
         return direction;
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+            Destroy(gameObject, 0);
+        }
+    }
 }

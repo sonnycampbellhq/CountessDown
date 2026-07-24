@@ -42,7 +42,10 @@ public class CountessController : MonoBehaviour
     float attackOffset;
     GameObject attack;
     
-
+    bool isInvincible = false;
+    [SerializeField]
+    float invincibilityDuration;
+    float lastDamageTaken=-5;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,7 @@ public class CountessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        invincibilityCheck();
         blockCheck();
         if (!isBlocking)
         {
@@ -135,7 +139,7 @@ public class CountessController : MonoBehaviour
             }
             else if(timeSinceAttack > attackDuration&&isAttacking)
             {
-                isAttacking=false;//on cooldown
+                isAttacking=false;// on cooldown
             }
         }
     }
@@ -161,16 +165,57 @@ public class CountessController : MonoBehaviour
         }
         else if(go.tag == "Down")
         {
-            //next level (down)
+            // next level (down)
+            // delete everything and load a prefab of the next level?
         }
+        else if(go.tag == "Spike")
+        {
+            //add some random knockback when on spike?
+            //knockbackVelocity+=-movementDirection/movementDirection.magnitude;
+            takeDamage();
+        }
+        else if(go.tag == "Health")
+        {
+            heal();
+            Destroy(go, 0);
+        }
+        else if(go.tag == "Money")
+        {
+            Debug.Log(go.GetComponent<Variables>());
+        }
+    }
+
+    void heal()
+    {
+        health++;
+        Debug.Log(health);
     }
 
     void takeDamage()
     {
-        health--;
-        if (health <= 0)
+        if (!isInvincible)
         {
-            //die
+            health--;
+            Debug.Log(health);
+            if (health <= 0)
+            {
+                // die
+                // death should take you back to a menu of some sort
+            }
+
+            lastDamageTaken=Time.time;
+            isInvincible=true;
+            gameObject.GetComponent<SpriteRenderer>().color=Color.magenta;
+        }
+        
+    }
+
+    void invincibilityCheck()
+    {
+        if (isInvincible&&Time.time-lastDamageTaken>invincibilityDuration)
+        {
+            isInvincible=false;
+            gameObject.GetComponent<SpriteRenderer>().color=Color.white;
         }
     }
 
