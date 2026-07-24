@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -11,6 +10,8 @@ public class CountessController : MonoBehaviour
     [SerializeField]
     int maxHealth;
     int health;
+
+    int money;
 
     [SerializeField]
     float movementSpeed;
@@ -170,8 +171,10 @@ public class CountessController : MonoBehaviour
         }
         else if(go.tag == "Spike")
         {
+            // TODO
             //add some random knockback when on spike?
             //knockbackVelocity+=-movementDirection/movementDirection.magnitude;
+            // doesn't take more than 1 damage if you stay in the spikes
             takeDamage();
         }
         else if(go.tag == "Health")
@@ -181,7 +184,9 @@ public class CountessController : MonoBehaviour
         }
         else if(go.tag == "Money")
         {
-            Debug.Log(go.GetComponent<Variables>());
+            money+=go.GetComponent<MoneyController>().getValue();
+            Debug.Log(money);
+            Destroy(go, 0);
         }
     }
 
