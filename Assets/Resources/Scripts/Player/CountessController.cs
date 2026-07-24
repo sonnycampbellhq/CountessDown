@@ -54,7 +54,6 @@ public class CountessController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health=maxHealth;
         attack = Resources.Load<GameObject>("Prefabs/Attack");
-        Debug.Log(Time.timeScale);
     }
 
     // Update is called once per frame
@@ -190,7 +189,6 @@ public class CountessController : MonoBehaviour
         else if(go.tag == "Money")
         {
             money+=go.GetComponent<MoneyController>().getValue();
-            Debug.Log(money);
             Destroy(go, 0);
         }
     }
@@ -198,7 +196,6 @@ public class CountessController : MonoBehaviour
     void heal()
     {
         health++;
-        Debug.Log(health);
     }
 
     void takeDamage()
@@ -206,7 +203,6 @@ public class CountessController : MonoBehaviour
         if (!isInvincible)
         {
             health--;
-            Debug.Log(health);
             if (health <= 0)
             {
                 // die
@@ -229,10 +225,5 @@ public class CountessController : MonoBehaviour
             isInvincible=false;
             gameObject.GetComponent<SpriteRenderer>().color=Color.white;
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision: "+collision);
     }
 }

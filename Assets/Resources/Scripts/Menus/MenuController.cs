@@ -6,8 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public GameObject pauseMenu;
+    bool pauseMenuActive = false;
     public GameObject deathMenu;
-    public void onStartPress()
+    bool deathMenuActive = false;
+    bool inLevel=false;
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            inLevel=true;
+        }
+    }
+
+  void Update()
+    {
+        escapePressCheck();
+    }
+
+  public void onStartPress()
     {
         SceneManager.LoadScene("SampleScene");
         Time.timeScale=1;
@@ -20,10 +38,10 @@ public class MenuController : MonoBehaviour
 
     public void deathMenuSpawn(int moneyIn, int floorsIn)
     {
-        Debug.Log("AHIUIASC");
         //other menus can't spawn
         //set floor and money text (take as params)
         deathMenu.SetActive(true);
+        deathMenuActive=true;
         TextMeshProUGUI[] menuTexts = deathMenu.GetComponentsInChildren<TextMeshProUGUI>();
         for(int i=0; i<menuTexts.Length; i++)
         {
@@ -39,16 +57,49 @@ public class MenuController : MonoBehaviour
         Time.timeScale=0;
     }
 
+    void escapePressCheck()
+    {
+        if (!deathMenuActive&&inLevel)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                resume();
+            }
+        }
+    }
+
+    public void onResumePress()
+    {
+        resume();
+    }
+
+    void resume()
+    {
+        pauseMenuActive=!pauseMenuActive;
+        pauseMenu.SetActive(pauseMenuActive);
+        Time.timeScale=-Time.timeScale+1;
+    }
+
     public void onRespawnPress()
     {
-        //SceneManager.LoadScene("SampleScene");
-        //delete everything in present scene
-        //load in a prefab of the first level
+        if (pauseMenuActive)
+        {
+            DestroyImmediate(GameObject.FindGameObjectWithTag("Countess"));
+            resume();
+        }
         Destroy(GameObject.FindGameObjectWithTag("Level"));
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+
+        for(int i=0; i<projectiles.Length; i++)
+        {
+            Destroy(projectiles[i]);
+        }
+
 
         Instantiate(Resources.Load("Prefabs/Countess"));
         Instantiate(Resources.Load("Prefabs/Levels/LevelTest"));
         Time.timeScale=1;
         deathMenu.SetActive(false);
+        deathMenuActive=false;
     }
 }
