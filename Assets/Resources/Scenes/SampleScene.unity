@@ -262,25 +262,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5247066985349621985, guid: 3e019fc184cdf784d82eadd74cc6f497, type: 3}
-      propertyPath: knockback
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247066985349621985, guid: 3e019fc184cdf784d82eadd74cc6f497, type: 3}
-      propertyPath: reloadTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247066985349621985, guid: 3e019fc184cdf784d82eadd74cc6f497, type: 3}
-      propertyPath: projectileSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6930258637971672277, guid: 3e019fc184cdf784d82eadd74cc6f497, type: 3}
       propertyPath: m_Name
       value: Peasant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900244737910498415, guid: 3e019fc184cdf784d82eadd74cc6f497, type: 3}
-      propertyPath: m_BodyType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -295,42 +279,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: acceleration
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: blockCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: blockDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: movementSpeed
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: attackCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: attackDuration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: maxBlockCooldown
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: maxBlockDuration
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 4524470750991164379, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.495
@@ -370,14 +318,6 @@ PrefabInstance:
     - target: {fileID: 4524470750991164379, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5969090241408792231, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_LinearDrag
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 5969090241408792231, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_AngularDrag
-      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6010458745601279965, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_Name

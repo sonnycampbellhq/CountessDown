@@ -36,6 +36,11 @@ public class CountessController : MonoBehaviour
     float attackCooldown;
     [SerializeField]
     float attackDuration;
+    [SerializeField]
+    Vector3 attackSize;
+    [SerializeField]
+    float attackOffset;
+    GameObject attack;
     
 
 
@@ -44,6 +49,7 @@ public class CountessController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         health=maxHealth;
+        attack = Resources.Load<GameObject>("Prefabs/Attack");
     }
 
     // Update is called once per frame
@@ -104,12 +110,20 @@ public class CountessController : MonoBehaviour
     {
         if (canAttack)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            float fire1 = Input.GetAxis("Fire1");
+            float fire2 = Input.GetAxis("Fire2");
+            if (fire1 != 0 || fire2 != 0)
             {
                 lastAttack = Time.time;
                 isAttacking=true;
                 canAttack=false;
-                Debug.Log("Attacking");
+                if (fire1 != 0)
+                {
+                    fire2 = 0;
+                }
+                Instantiate(attack).
+                GetComponent<AttackController>().
+                    SetAttackController(transform.position, attackOffset, new Vector2(fire1, fire2), attackSize);
             }
         }
         else
