@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4494488383357323391}
   - component: {fileID: 4056281987395205569}
+  - component: {fileID: 5247066985349621985}
   - component: {fileID: 3753657067506187322}
   - component: {fileID: 8900244737910498415}
-  - component: {fileID: 5247066985349621985}
   m_Layer: 6
   m_Name: Shooter
   m_TagString: Peasant
@@ -87,6 +87,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5247066985349621985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930258637971672277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92e9365582b72a41afc49f29c12cae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadTime: 3
+  tracking: 0
+  direction: {x: 1, y: 0}
+  projectileSpeed: 10
+  projectileSize: 0.75
+  knockback: 8
 --- !u!61 &3753657067506187322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,21 +177,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5247066985349621985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6930258637971672277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92e9365582b72a41afc49f29c12cae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadTime: 3
-  tracking: 0
-  direction: {x: 1, y: 0}
-  projectileSpeed: 10
-  projectileSize: 0.75
-  knockback: 8

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShooterController : MonoBehaviour
 {
+    float startTime;
     [SerializeField]
     int reloadTime;
     [SerializeField]
@@ -24,12 +25,13 @@ public class ShooterController : MonoBehaviour
     {
         projectile = Resources.Load<GameObject>("Prefabs/Projectile");
         countess = GameObject.FindGameObjectWithTag("Countess");
+        startTime=Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > (shots+1)*reloadTime&&countess!=null)
+        if (Time.time-startTime > (shots+1)*reloadTime&&countess!=null)
         {
             if (tracking)
             {

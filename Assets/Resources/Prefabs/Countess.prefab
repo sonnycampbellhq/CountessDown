@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1500584534265608980}
   - component: {fileID: 1790279208235554813}
   - component: {fileID: 5969090241408792231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Countess
-  m_TagString: Untagged
+  m_TagString: Countess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   attackDuration: 0.1
   attackSize: {x: 1, y: 0.5, z: 1}
   attackOffset: 1.1
+  invincibilityDuration: 1.5
 --- !u!61 &1790279208235554813
 BoxCollider2D:
   m_ObjectHideFlags: 0

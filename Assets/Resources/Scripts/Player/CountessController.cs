@@ -11,7 +11,8 @@ public class CountessController : MonoBehaviour
     int maxHealth;
     int health;
 
-    int money;
+    int money=0;
+    int floor=10;
 
     [SerializeField]
     float movementSpeed;
@@ -28,7 +29,6 @@ public class CountessController : MonoBehaviour
     [SerializeField]
     float blockDuration;
     float blockKnockbackReduction = 5;
-
 
     bool isAttacking = false;
     bool canAttack = true;
@@ -54,6 +54,7 @@ public class CountessController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health=maxHealth;
         attack = Resources.Load<GameObject>("Prefabs/Attack");
+        Debug.Log(Time.timeScale);
     }
 
     // Update is called once per frame
@@ -167,7 +168,11 @@ public class CountessController : MonoBehaviour
         else if(go.tag == "Down")
         {
             // next level (down)
-            // delete everything and load a prefab of the next level?
+            Destroy(GameObject.FindGameObjectWithTag("Level"));
+        
+            Instantiate(Resources.Load("Prefabs/Levels/LevelTest2"));
+            floor++;
+            // add 1 to floor
         }
         else if(go.tag == "Spike")
         {
@@ -206,6 +211,8 @@ public class CountessController : MonoBehaviour
             {
                 // die
                 // death should take you back to a menu of some sort
+                GameObject.FindGameObjectWithTag("EventSystem").GetComponent<MenuController>().deathMenuSpawn(money, floor);
+                Destroy(gameObject, 0);
             }
 
             lastDamageTaken=Time.time;
