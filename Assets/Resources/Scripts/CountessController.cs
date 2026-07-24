@@ -9,6 +9,10 @@ using UnityEngine;
 public class CountessController : MonoBehaviour
 {
     [SerializeField]
+    int maxHealth;
+    int health;
+
+    [SerializeField]
     float movementSpeed;
 
     Vector2 movementDirection;
@@ -22,6 +26,16 @@ public class CountessController : MonoBehaviour
     float blockCooldown;
     [SerializeField]
     float blockDuration;
+    float blockKnockbackReduction = 5;
+
+
+    bool isAttacking = false;
+    bool canAttack = true;
+    float lastAttack=-5;
+    [SerializeField]
+    float attackCooldown;
+    [SerializeField]
+    float attackDuration;
     
 
 
@@ -29,10 +43,36 @@ public class CountessController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health=maxHealth;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        blockCheck();
+        if (!isBlocking)
+        {
+            attackCheck();
+        }
+
+        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+    }
+
+    void FixedUpdate()
+    {
+        knockbackVelocity = Vector2.MoveTowards(knockbackVelocity, Vector2.zero, 15*Time.deltaTime);
+
+        if (isBlocking)
+        {
+            rb.velocity = Vector2.MoveTowards(rb.velocity, knockbackVelocity, Time.deltaTime) + knockbackVelocity;
+        }
+        else
+        {
+            rb.velocity = movementDirection * movementSpeed + knockbackVelocity;
+        }
+    }
+
+    void blockCheck()
     {
         if (canBlock)
         {
@@ -58,15 +98,34 @@ public class CountessController : MonoBehaviour
                 Debug.Log("On cooldown");
             }
         }
-
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
-    void FixedUpdate()
+    void attackCheck()
     {
-        rb.velocity = movementDirection * movementSpeed + knockbackVelocity;
-
-        knockbackVelocity = Vector2.MoveTowards(knockbackVelocity, Vector2.zero, 10*Time.deltaTime);
+        if (canAttack)
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                lastAttack = Time.time;
+                isAttacking=true;
+                canAttack=false;
+                Debug.Log("Attacking");
+            }
+        }
+        else
+        {
+            float timeSinceAttack=Time.time-lastAttack;
+            if (timeSinceAttack > attackCooldown)
+            {
+                canAttack=true;
+                Debug.Log("Can attack");
+            }
+            else if(timeSinceAttack > attackDuration&&isAttacking)
+            {
+                isAttacking=false;
+                Debug.Log("On cooldown");
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -75,9 +134,31 @@ public class CountessController : MonoBehaviour
         if (go.tag == "Projectile")
         {
             ProjectileController pc = go.GetComponent<ProjectileController>();
-            gameObject.GetComponent<Rigidbody2D>().AddForce(pc.GetDirection()*pc.GetKnockback(), ForceMode2D.Impulse);
-            knockbackVelocity = pc.GetDirection()*pc.GetKnockback();
+            
             go.SetActive(false);
+            if (isBlocking)
+            {
+                knockbackVelocity = pc.GetDirection()*pc.GetKnockback()/blockKnockbackReduction;
+            }
+            else
+            {
+                knockbackVelocity = pc.GetDirection()*pc.GetKnockback();
+                takeDamage();
+            }
+            
+        }
+        else if(go.tag == "Down")
+        {
+            Debug.Log("DOWN");
+        }
+    }
+
+    void takeDamage()
+    {
+        health--;
+        if (health <= 0)
+        {
+            Debug.Log("DED");
         }
     }
 

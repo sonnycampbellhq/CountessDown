@@ -296,20 +296,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: acceleration
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: blockCooldown
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: blockDuration
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: movementSpeed
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+      propertyPath: attackDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: maxBlockCooldown
@@ -386,6 +398,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2684607435144929532, guid: 41e431b4e677a4647b304a11b889f282, type: 3}
       propertyPath: m_Name
+      value: Down
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684607435144929532, guid: 41e431b4e677a4647b304a11b889f282, type: 3}
+      propertyPath: m_TagString
       value: Down
       objectReference: {fileID: 0}
     - target: {fileID: 3505691288881547048, guid: 41e431b4e677a4647b304a11b889f282, type: 3}
