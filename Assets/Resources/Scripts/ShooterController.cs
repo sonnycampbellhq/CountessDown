@@ -33,4 +33,18 @@ public class ShooterController : MonoBehaviour
                     SetProjectileController(transform.position, direction/direction.magnitude, projectileSpeed, projectileSize, knockback);
         }
     }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Attack")
+        {
+            takeDamage();
+        }
+    }
+
+  void takeDamage()
+    {
+        //add health system???
+        Destroy(gameObject, 0);
+    }
 }

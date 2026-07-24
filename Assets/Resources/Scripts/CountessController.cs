@@ -87,7 +87,7 @@ public class CountessController : MonoBehaviour
                 lastBlock = Time.time;
                 isBlocking=true;
                 canBlock=false;
-                Debug.Log("Blocking");
+                //block starts
             }
         }
         else
@@ -96,12 +96,12 @@ public class CountessController : MonoBehaviour
             if (timeSinceBlock > blockCooldown)
             {
                 canBlock=true;
-                Debug.Log("Can block");
+                //can block
             }
             else if(timeSinceBlock > blockDuration&&isBlocking)
             {
                 isBlocking=false;
-                Debug.Log("On cooldown");
+                //can't block
             }
         }
     }
@@ -131,13 +131,11 @@ public class CountessController : MonoBehaviour
             float timeSinceAttack=Time.time-lastAttack;
             if (timeSinceAttack > attackCooldown)
             {
-                canAttack=true;
-                Debug.Log("Can attack");
+                canAttack=true;// can attack
             }
             else if(timeSinceAttack > attackDuration&&isAttacking)
             {
-                isAttacking=false;
-                Debug.Log("On cooldown");
+                isAttacking=false;//on cooldown
             }
         }
     }
@@ -163,7 +161,7 @@ public class CountessController : MonoBehaviour
         }
         else if(go.tag == "Down")
         {
-            Debug.Log("DOWN");
+            //next level (down)
         }
     }
 
@@ -172,12 +170,12 @@ public class CountessController : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            Debug.Log("DED");
+            //die
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("C");
+        Debug.Log("Collision: "+collision);
     }
 }

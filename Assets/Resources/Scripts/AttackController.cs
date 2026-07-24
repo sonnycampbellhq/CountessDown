@@ -13,11 +13,6 @@ public class AttackController : MonoBehaviour
         Destroy(gameObject, 0.2f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void SetAttackController(Vector3 basePosition, float offsetIn, Vector2 directionIn, Vector3 sizeIn)
     {
         offset=offsetIn;
