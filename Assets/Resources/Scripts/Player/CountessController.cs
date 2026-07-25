@@ -223,9 +223,18 @@ public class CountessController : MonoBehaviour
             //make velocity + pause work
             //add a public function (in menucontroller) to wiipe screen, like used on respawn
             floor--;
-            menuController.updateHUD(0, floor);
-            levelManager.loadLevel(floor);
-            startTime=Time.time;
+            if (floor != -1)
+            {
+                menuController.updateHUD(0, floor);
+                levelManager.loadLevel(floor);
+                startTime=Time.time;
+            }
+            else
+            {
+                Time.timeScale=0;
+                menuController.deathMenuSpawn(money, floor);
+            }
+            
         }
         else if(go.tag == "Spike")
         {
@@ -242,8 +251,8 @@ public class CountessController : MonoBehaviour
         }
         else if(go.tag == "Money")
         {
-            money+=go.GetComponent<MoneyController>().getValue();
-            menuController.updateHUD(2, money);
+            //money+=go.GetComponent<MoneyController>().getValue();
+            gainMoney();
             Destroy(go, 0);
         }
     }
@@ -252,6 +261,12 @@ public class CountessController : MonoBehaviour
     {
         health++;
         menuController.updateHUD(1, health);
+    }
+
+    public void gainMoney()
+    {
+        money+=10;
+        menuController.updateHUD(2, money);
     }
 
     void takeDamage()

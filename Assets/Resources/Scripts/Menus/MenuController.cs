@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "SampleScene")
+        if (SceneManager.GetActiveScene().name == "Levels")
         {
             inLevel=true;
         }
@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour
 
   public void onStartPress()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Levels");
         Time.timeScale=1;
     }
 
@@ -44,10 +44,17 @@ public class MenuController : MonoBehaviour
     {
         //other menus can't spawn
         //set floor and money text (take as params)
+
         deathMenu.SetActive(true);
         deathMenuActive=true;
         TextMeshProUGUI[] menuTexts = deathMenu.GetComponentsInChildren<TextMeshProUGUI>();
 
+        if (floorsIn == -1)
+        {
+            menuTexts[2].text ="VICTORY!!";
+            LevelManager.loadBlackBackground();
+            HUD.SetActive(false);
+        }
         menuTexts[3].text = $"Money\n\n{moneyIn}";
         menuTexts[4].text = $"Floors\n\n{10-floorsIn}";
 

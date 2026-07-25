@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -13,7 +14,6 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(projectiles[i]);
         }
-
         if (levelNum == 10)
         {
             Instantiate(Resources.Load("Prefabs/Countess"));
@@ -21,5 +21,10 @@ public class LevelManager : MonoBehaviour
 
         Instantiate(Resources.Load($"Prefabs/Levels/Level{levelNum}"));
         Time.timeScale=1;
+    }
+
+    public static void loadBlackBackground()
+    {
+        Instantiate(Resources.Load("Prefabs/Levels/Black"));
     }
 }

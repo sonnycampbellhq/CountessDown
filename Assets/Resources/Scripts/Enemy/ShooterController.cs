@@ -20,12 +20,15 @@ public class ShooterController : MonoBehaviour
     int shots=0;
     GameObject projectile;
     GameObject countess;
+
+    [SerializeField]
+    float timeOffsetProportion;
     // Start is called before the first frame update
     void Start()
     {
         projectile = Resources.Load<GameObject>("Prefabs/Projectile");
         countess = GameObject.FindGameObjectWithTag("Countess");
-        startTime=Time.time+1; //this adds start delay
+        startTime=Time.time+2/reloadTime-2+timeOffsetProportion*reloadTime; //this adds start delay
     }
 
     // Update is called once per frame
@@ -51,6 +54,7 @@ public class ShooterController : MonoBehaviour
         if (collision.tag == "Attack")
         {
             takeDamage();
+            countess.GetComponent<CountessController>().gainMoney();
         }
     }
 
