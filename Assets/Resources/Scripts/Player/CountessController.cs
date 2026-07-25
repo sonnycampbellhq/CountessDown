@@ -57,6 +57,7 @@ public class CountessController : MonoBehaviour
     GameObject eventSystem;
     LevelManager levelManager;
     MenuController menuController;
+    AudioHandler audioHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class CountessController : MonoBehaviour
         levelManager = eventSystem.GetComponent<LevelManager>();
         menuController = eventSystem.GetComponent<MenuController>();
         startTime=Time.time;
+        audioHandler = GameObject.FindGameObjectWithTag("AudioHandler").GetComponent<AudioHandler>();
     }
 
     // Update is called once per frame
@@ -178,6 +180,7 @@ public class CountessController : MonoBehaviour
                 Instantiate(attack).
                 GetComponent<AttackController>().
                     SetAttackController(transform.position, attackOffset, new Vector2(fire1, fire2), attackSize);
+                    audioHandler.playAttack();
             }
         }
         else

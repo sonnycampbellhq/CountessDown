@@ -18,6 +18,7 @@ TagManager:
   - EventSystem
   - Level
   - HUD
+  - AudioHandler
   layers:
   - Default
   - TransparentFX
