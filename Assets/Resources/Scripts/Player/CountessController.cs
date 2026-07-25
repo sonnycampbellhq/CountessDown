@@ -48,12 +48,19 @@ public class CountessController : MonoBehaviour
     float invincibilityDuration;
     float lastDamageTaken=-5;
 
+
+    GameObject eventSystem;
+    LevelManager levelManager;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health=maxHealth;
         attack = Resources.Load<GameObject>("Prefabs/Attack");
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
+        levelManager = eventSystem.GetComponent<LevelManager>();
+        Debug.Log(eventSystem.name + "  ");
     }
 
     // Update is called once per frame
@@ -67,6 +74,7 @@ public class CountessController : MonoBehaviour
         }
 
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Debug.Log(money);
     }
 
     void FixedUpdate()
@@ -167,11 +175,14 @@ public class CountessController : MonoBehaviour
         else if(go.tag == "Down")
         {
             // next level (down)
-            Destroy(GameObject.FindGameObjectWithTag("Level"));
-        
-            Instantiate(Resources.Load("Prefabs/Levels/LevelTest2"));
-            floor++;
-            // add 1 to floor
+            rb.velocity=-rb.velocity;
+            knockbackVelocity=Vector2.zero;
+            //teleport to spot
+            //make velocity + pause work
+            //add a public function (in menucontroller) to wiipe screen, like used on respawn
+            floor--;
+            levelManager.loadLevel(floor);
+            
         }
         else if(go.tag == "Spike")
         {
@@ -207,6 +218,7 @@ public class CountessController : MonoBehaviour
             {
                 // die
                 // death should take you back to a menu of some sort
+                Debug.Log("MONEY:"+money);
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<MenuController>().deathMenuSpawn(money, floor);
                 Destroy(gameObject, 0);
             }

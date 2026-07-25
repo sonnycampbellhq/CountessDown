@@ -43,17 +43,10 @@ public class MenuController : MonoBehaviour
         deathMenu.SetActive(true);
         deathMenuActive=true;
         TextMeshProUGUI[] menuTexts = deathMenu.GetComponentsInChildren<TextMeshProUGUI>();
-        for(int i=0; i<menuTexts.Length; i++)
-        {
-            if (menuTexts[i].text == "Money")
-            {
-                menuTexts[i].text = $"Money\n\n{moneyIn}";
-            }
-            else if(menuTexts[i].text == "Floors")
-            {
-                menuTexts[i].text = $"Floors\n\n{floorsIn}";
-            }
-        }
+
+        menuTexts[3].text = $"Money\n\n{moneyIn}";
+        menuTexts[4].text = $"Floors\n\n{floorsIn}";
+        
         Time.timeScale=0;
     }
 
@@ -87,18 +80,7 @@ public class MenuController : MonoBehaviour
             DestroyImmediate(GameObject.FindGameObjectWithTag("Countess"));
             resume();
         }
-        Destroy(GameObject.FindGameObjectWithTag("Level"));
-        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
-
-        for(int i=0; i<projectiles.Length; i++)
-        {
-            Destroy(projectiles[i]);
-        }
-
-
-        Instantiate(Resources.Load("Prefabs/Countess"));
-        Instantiate(Resources.Load("Prefabs/Levels/LevelTest"));
-        Time.timeScale=1;
+        gameObject.GetComponent<LevelManager>().loadLevel(10);
         deathMenu.SetActive(false);
         deathMenuActive=false;
     }

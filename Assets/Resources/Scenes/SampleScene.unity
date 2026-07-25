@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 1344636853}
   - component: {fileID: 1344636852}
   - component: {fileID: 1344636855}
+  - component: {fileID: 1344636856}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: EventSystem
@@ -416,6 +417,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1649451614}
   deathMenu: {fileID: 401365330}
+--- !u!114 &1344636856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344636851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9fb409c6ee2b84faf21198a58a0a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353739290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1034,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1669060503700804117}
   - {fileID: 1435525619}
   - {fileID: 1344636854}
   - {fileID: 1964167099}
+  - {fileID: 1669060503700804117}
