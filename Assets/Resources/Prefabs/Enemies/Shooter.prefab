@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92e9365582b72a41afc49f29c12cae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 3
+  reloadTime: 2
   tracking: 0
   direction: {x: 1, y: 0}
   projectileSpeed: 10
