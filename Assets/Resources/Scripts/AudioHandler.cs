@@ -31,8 +31,53 @@ public class AudioHandler : MonoBehaviour
         win=Resources.Load<AudioClip>("Audio/Win");
     }
 
-  public void playAttack()
+    public void playAttack()
+    {
+        source.PlayOneShot(attack);
+    }
+
+    public void playCoin()
+    {
+        source.PlayOneShot(coin);
+    }
+
+    public void playDown()
+    {
+        source.PlayOneShot(down);
+    }
+
+    public void playHeal()
+    {
+        source.PlayOneShot(heal);
+    }
+
+    public void playKill()
+    {
+        source.PlayOneShot(kill);
+    }
+
+    public void playLose()
+    {
+        source.PlayOneShot(lose);
+    }
+
+    public void playProjectileHit()
+    {
+        source.PlayOneShot(projectileHit);
+    }
+
+    public void playProjectileShoot()
+    {
+        source.PlayOneShot(projectileShoot);
+    }
+
+    public void playTakeDamage()
     {
         source.PlayOneShot(takeDamage);
+    }
+
+    public void playWin()
+    {
+        source.PlayOneShot(win);
     }
 }

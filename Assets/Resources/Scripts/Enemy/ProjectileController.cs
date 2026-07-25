@@ -9,7 +9,13 @@ public class ProjectileController : MonoBehaviour
     Vector2 initialPos;
     Vector2 direction;
     Vector2 pos;
+
+    AudioHandler audioHandler;
     // Start is called before the first frame update
+    void Start()
+    {
+        audioHandler = GameObject.FindGameObjectWithTag("AudioHandler").GetComponent<AudioHandler>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +50,7 @@ public class ProjectileController : MonoBehaviour
         if (collision.tag == "Wall")
         {
             Destroy(gameObject, 0);
+            audioHandler.playProjectileHit();
         }
     }
 }

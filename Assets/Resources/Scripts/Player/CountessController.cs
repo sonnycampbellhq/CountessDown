@@ -231,11 +231,13 @@ public class CountessController : MonoBehaviour
                 menuController.updateHUD(0, floor);
                 levelManager.loadLevel(floor);
                 startTime=Time.time;
+                audioHandler.playDown();
             }
             else
             {
                 Time.timeScale=0;
                 menuController.deathMenuSpawn(money, floor);
+                audioHandler.playWin();
             }
             
         }
@@ -257,6 +259,7 @@ public class CountessController : MonoBehaviour
             //money+=go.GetComponent<MoneyController>().getValue();
             gainMoney();
             Destroy(go, 0);
+            audioHandler.playCoin();
         }
     }
 
@@ -264,6 +267,7 @@ public class CountessController : MonoBehaviour
     {
         health++;
         menuController.updateHUD(1, health);
+        audioHandler.playHeal();
     }
 
     public void gainMoney()
@@ -278,10 +282,10 @@ public class CountessController : MonoBehaviour
         {
             health--;
             menuController.updateHUD(1, health);
+            audioHandler.playTakeDamage();
             if (health <= 0)
             {
-                // die
-                // death should take you back to a menu of some sort
+                audioHandler.playLose();
                 menuController.deathMenuSpawn(money, floor);
                 Destroy(gameObject, 0);
             }

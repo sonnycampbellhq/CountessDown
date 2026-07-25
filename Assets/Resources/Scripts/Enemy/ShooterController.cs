@@ -23,12 +23,14 @@ public class ShooterController : MonoBehaviour
 
     [SerializeField]
     float timeOffsetProportion;
+    AudioHandler audioHandler;
     // Start is called before the first frame update
     void Start()
     {
         projectile = Resources.Load<GameObject>("Prefabs/Projectile");
         countess = GameObject.FindGameObjectWithTag("Countess");
         startTime=Time.time+2/reloadTime-2+timeOffsetProportion*reloadTime; //this adds start delay
+        audioHandler = GameObject.FindGameObjectWithTag("AudioHandler").GetComponent<AudioHandler>();
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class ShooterController : MonoBehaviour
             Instantiate(projectile).
                 GetComponent<ProjectileController>().
                     SetProjectileController(transform.position, direction/direction.magnitude, projectileSpeed, projectileSize, knockback);
+            audioHandler.playProjectileShoot();
         }
     }
 
@@ -61,6 +64,7 @@ public class ShooterController : MonoBehaviour
   void takeDamage()
     {
         //add health system???
+        audioHandler.playKill();
         Destroy(gameObject, 0);
     }
 }
