@@ -51,6 +51,7 @@ public class CountessController : MonoBehaviour
 
     GameObject eventSystem;
     LevelManager levelManager;
+    MenuController menuController;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,7 @@ public class CountessController : MonoBehaviour
         attack = Resources.Load<GameObject>("Prefabs/Attack");
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
         levelManager = eventSystem.GetComponent<LevelManager>();
-        Debug.Log(eventSystem.name + "  ");
+        menuController = eventSystem.GetComponent<MenuController>();
     }
 
     // Update is called once per frame
@@ -74,7 +75,6 @@ public class CountessController : MonoBehaviour
         }
 
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        Debug.Log(money);
     }
 
     void FixedUpdate()
@@ -181,6 +181,7 @@ public class CountessController : MonoBehaviour
             //make velocity + pause work
             //add a public function (in menucontroller) to wiipe screen, like used on respawn
             floor--;
+            menuController.updateHUD(0, floor);
             levelManager.loadLevel(floor);
             
         }
@@ -200,6 +201,7 @@ public class CountessController : MonoBehaviour
         else if(go.tag == "Money")
         {
             money+=go.GetComponent<MoneyController>().getValue();
+            menuController.updateHUD(2, money);
             Destroy(go, 0);
         }
     }
@@ -207,6 +209,7 @@ public class CountessController : MonoBehaviour
     void heal()
     {
         health++;
+        menuController.updateHUD(1, health);
     }
 
     void takeDamage()
@@ -214,12 +217,12 @@ public class CountessController : MonoBehaviour
         if (!isInvincible)
         {
             health--;
+            menuController.updateHUD(1, health);
             if (health <= 0)
             {
                 // die
                 // death should take you back to a menu of some sort
-                Debug.Log("MONEY:"+money);
-                GameObject.FindGameObjectWithTag("EventSystem").GetComponent<MenuController>().deathMenuSpawn(money, floor);
+                menuController.deathMenuSpawn(money, floor);
                 Destroy(gameObject, 0);
             }
 

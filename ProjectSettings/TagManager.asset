@@ -17,6 +17,7 @@ TagManager:
   - Obstacle
   - EventSystem
   - Level
+  - HUD
   layers:
   - Default
   - TransparentFX

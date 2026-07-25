@@ -12,12 +12,16 @@ public class MenuController : MonoBehaviour
     bool deathMenuActive = false;
     bool inLevel=false;
 
+    GameObject HUD;
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             inLevel=true;
         }
+
+        HUD=GameObject.FindGameObjectWithTag("HUD");
     }
 
   void Update()
@@ -46,7 +50,7 @@ public class MenuController : MonoBehaviour
 
         menuTexts[3].text = $"Money\n\n{moneyIn}";
         menuTexts[4].text = $"Floors\n\n{floorsIn}";
-        
+
         Time.timeScale=0;
     }
 
@@ -81,7 +85,16 @@ public class MenuController : MonoBehaviour
             resume();
         }
         gameObject.GetComponent<LevelManager>().loadLevel(10);
+
+        updateHUD(0, 10);
+        updateHUD(1, 5);
+        updateHUD(2, 0);
         deathMenu.SetActive(false);
         deathMenuActive=false;
+    }
+
+    public void updateHUD(int whichVal, int valueIn)
+    {
+        HUD.GetComponentsInChildren<TextMeshProUGUI>()[whichVal].text=valueIn.ToString();
     }
 }
