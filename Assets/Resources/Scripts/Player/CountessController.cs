@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CountessController : MonoBehaviour
@@ -47,6 +48,11 @@ public class CountessController : MonoBehaviour
     float invincibilityDuration;
     float lastDamageTaken=-5;
 
+    bool canAct = false;
+    float startTime;
+    [SerializeField]
+    float startDelay;
+
 
     GameObject eventSystem;
     LevelManager levelManager;
@@ -61,32 +67,68 @@ public class CountessController : MonoBehaviour
         eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
         levelManager = eventSystem.GetComponent<LevelManager>();
         menuController = eventSystem.GetComponent<MenuController>();
+        startTime=Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+        moveCheck();
         invincibilityCheck();
-        blockCheck();
-        if (!isBlocking)
+        if (canAct)
         {
-            attackCheck();
-        }
+            blockCheck();
+            if (!isBlocking)
+            {
+                attackCheck();
+            }
 
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
     }
 
     void FixedUpdate()
     {
         knockbackVelocity = Vector2.MoveTowards(knockbackVelocity, Vector2.zero, 15*Time.deltaTime);
 
-        if (isBlocking)
+        if (!canAct)
+        {
+            rb.velocity=Vector2.zero;
+        }
+        else if (isBlocking)
         {
             rb.velocity = Vector2.MoveTowards(rb.velocity, knockbackVelocity, Time.deltaTime) + knockbackVelocity;
         }
         else
         {
             rb.velocity = movementDirection * movementSpeed + knockbackVelocity;
+        }
+    }
+
+    void moveCheck()
+    {
+        if (!canAct)
+        {
+            if (Time.time - startTime > startDelay)
+            {
+                canAct=true;
+            }
+        }
+        else
+        {
+            if (Time.time - startTime < startDelay)
+            {
+                canAct=false;
+            }
+        }
+    }
+
+    void invincibilityCheck()
+    {
+        if (isInvincible&&Time.time-lastDamageTaken>invincibilityDuration)
+        {
+            isInvincible=false;
+            gameObject.GetComponent<SpriteRenderer>().color=Color.white;
         }
     }
 
@@ -176,13 +218,14 @@ public class CountessController : MonoBehaviour
             // next level (down)
             rb.velocity=-rb.velocity;
             knockbackVelocity=Vector2.zero;
+            gameObject.transform.position=go.transform.position;
             //teleport to spot
             //make velocity + pause work
             //add a public function (in menucontroller) to wiipe screen, like used on respawn
             floor--;
             menuController.updateHUD(0, floor);
             levelManager.loadLevel(floor);
-            
+            startTime=Time.time;
         }
         else if(go.tag == "Spike")
         {
@@ -230,14 +273,5 @@ public class CountessController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color=Color.magenta;
         }
         
-    }
-
-    void invincibilityCheck()
-    {
-        if (isInvincible&&Time.time-lastDamageTaken>invincibilityDuration)
-        {
-            isInvincible=false;
-            gameObject.GetComponent<SpriteRenderer>().color=Color.white;
-        }
     }
 }

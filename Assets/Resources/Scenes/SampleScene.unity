@@ -595,6 +595,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelTest
       objectReference: {fileID: 0}
+    - target: {fileID: 6984244180657396358, guid: bb1f7a66aa525a54baa0181d156b2d25, type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768396649599195314, guid: bb1f7a66aa525a54baa0181d156b2d25, type: 3}
+      propertyPath: reloadTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768396649599195314, guid: bb1f7a66aa525a54baa0181d156b2d25, type: 3}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

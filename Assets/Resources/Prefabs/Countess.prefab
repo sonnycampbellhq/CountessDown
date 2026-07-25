@@ -108,6 +108,7 @@ MonoBehaviour:
   attackSize: {x: 1, y: 0.5, z: 1}
   attackOffset: 1.1
   invincibilityDuration: 1.5
+  startDelay: 1
 --- !u!61 &1790279208235554813
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class ShooterController : MonoBehaviour
 {
     float startTime;
     [SerializeField]
-    int reloadTime;
+    float reloadTime;
     [SerializeField]
     bool tracking;
     [SerializeField]
@@ -25,7 +25,7 @@ public class ShooterController : MonoBehaviour
     {
         projectile = Resources.Load<GameObject>("Prefabs/Projectile");
         countess = GameObject.FindGameObjectWithTag("Countess");
-        startTime=Time.time;
+        startTime=Time.time+1; //this adds start delay
     }
 
     // Update is called once per frame
