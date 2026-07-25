@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
         TextMeshProUGUI[] menuTexts = deathMenu.GetComponentsInChildren<TextMeshProUGUI>();
 
         menuTexts[3].text = $"Money\n\n{moneyIn}";
-        menuTexts[4].text = $"Floors\n\n{floorsIn}";
+        menuTexts[4].text = $"Floors\n\n{10-floorsIn}";
 
         Time.timeScale=0;
     }
