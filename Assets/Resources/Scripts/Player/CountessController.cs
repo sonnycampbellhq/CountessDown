@@ -181,6 +181,7 @@ public class CountessController : MonoBehaviour
                 GetComponent<AttackController>().
                     SetAttackController(transform.position, attackOffset, new Vector2(fire1, fire2), attackSize);
                     audioHandler.playAttack();
+                gameObject.transform.up=new Vector2(fire1, fire2);
             }
         }
         else

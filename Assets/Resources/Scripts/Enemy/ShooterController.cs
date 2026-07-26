@@ -31,6 +31,7 @@ public class ShooterController : MonoBehaviour
         countess = GameObject.FindGameObjectWithTag("Countess");
         startTime=Time.time+2/reloadTime-2+timeOffsetProportion*reloadTime; //this adds start delay
         audioHandler = GameObject.FindGameObjectWithTag("AudioHandler").GetComponent<AudioHandler>();
+        gameObject.transform.up=direction;
     }
 
     // Update is called once per frame
