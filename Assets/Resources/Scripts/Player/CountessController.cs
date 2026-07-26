@@ -293,7 +293,7 @@ public class CountessController : MonoBehaviour
 
             lastDamageTaken=Time.time;
             isInvincible=true;
-            gameObject.GetComponent<SpriteRenderer>().color=Color.magenta;
+            gameObject.GetComponent<SpriteRenderer>().color=new Color(0.9f,0,0.5f,0.7f);
         }
         
     }
