@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
+            Destroy(GameObject.FindGameObjectWithTag("Level"));
+            Time.timeScale=0;
             SceneManager.LoadScene("MainMenu");
         }
         else
