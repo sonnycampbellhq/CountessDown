@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
     bool inLevel=false;
 
     GameObject HUD;
+    GameObject countess;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class MenuController : MonoBehaviour
 
     public void onTutorialPress()
     {
-        SceneManager.LoadScene("Levels");
+        SceneManager.LoadScene("Tutorial");
         Time.timeScale=1;
     }
 
@@ -63,8 +64,8 @@ public class MenuController : MonoBehaviour
         if (floorsIn == -1)
         {
             menuTexts[2].text ="VICTORY!!";
-            LevelManager.loadBlackBackground();
-            HUD.SetActive(false);
+            countess = GameObject.FindGameObjectWithTag("Countess");
+            Destroy(countess);
         }
         menuTexts[3].text = $"Money\n\n{moneyIn}";
         menuTexts[4].text = $"Floors\n\n{10-floorsIn}";

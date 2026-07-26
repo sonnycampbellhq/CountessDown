@@ -1332,6 +1332,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialText
       objectReference: {fileID: 0}
+    - target: {fileID: 6274564904323112371, guid: 0f9df564b3ca3d0428630b5640cb8e72, type: 3}
+      propertyPath: m_text
+      value: 'Beware! enemies and spikes!
+
+
+        Block projectiles with space'
+      objectReference: {fileID: 0}
     - target: {fileID: 8409497523837341562, guid: 0f9df564b3ca3d0428630b5640cb8e72, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1450377317}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: onStartPress
+        m_MethodName: onTutorialPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
