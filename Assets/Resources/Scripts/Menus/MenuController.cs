@@ -24,15 +24,26 @@ public class MenuController : MonoBehaviour
         HUD=GameObject.FindGameObjectWithTag("HUD");
     }
 
-  void Update()
+    void Update()
     {
         escapePressCheck();
     }
 
-  public void onStartPress()
+    public void onStartPress()
     {
         SceneManager.LoadScene("Levels");
         Time.timeScale=1;
+    }
+
+    public void onTutorialPress()
+    {
+        SceneManager.LoadScene("Levels");
+        Time.timeScale=1;
+    }
+
+    public void onExitPress()
+    {
+        Application.Quit();
     }
 
     public void onMenuPress()

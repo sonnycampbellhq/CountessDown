@@ -347,46 +347,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &525329452 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6010458745601279965, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-  m_PrefabInstance: {fileID: 1669060503700804117}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &525329459
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525329452}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &593260254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1522,18 +1482,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: attackSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790279208235554813, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 65f56ce57ec29d0479a7f3f306fd9f39, type: 3}
     - target: {fileID: 4524470750991164379, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -1578,14 +1526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Countess
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1790279208235554813, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6010458745601279965, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 525329459}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
 --- !u!1001 &5391705890939166657
 PrefabInstance:

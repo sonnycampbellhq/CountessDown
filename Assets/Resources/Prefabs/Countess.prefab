@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4524470750991164379}
   - component: {fileID: 4434828984618291125}
   - component: {fileID: 1500584534265608980}
-  - component: {fileID: 1790279208235554813}
+  - component: {fileID: 7434919898948379917}
   - component: {fileID: 5969090241408792231}
   m_Layer: 7
   m_Name: Countess
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65f56ce57ec29d0479a7f3f306fd9f39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,12 +105,12 @@ MonoBehaviour:
   blockDuration: 1
   attackCooldown: 0.4
   attackDuration: 0.1
-  attackSize: {x: 1, y: 0.5, z: 1}
+  attackSize: {x: 1, y: 1, z: 1}
   attackOffset: 1
   invincibilityDuration: 1
   startDelay: 1
---- !u!61 &1790279208235554813
-BoxCollider2D:
+--- !u!58 &7434919898948379917
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,18 +142,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!50 &5969090241408792231
 Rigidbody2D:
   serializedVersion: 4
