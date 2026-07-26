@@ -16,6 +16,7 @@ public class AudioHandler : MonoBehaviour
     AudioClip takeDamage;
     AudioClip win;
     [SerializeField] AudioSource source;
+    [SerializeField] AudioSource musicSource;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class AudioHandler : MonoBehaviour
         projectileShoot=Resources.Load<AudioClip>("Audio/ProjectileShoot");
         takeDamage=Resources.Load<AudioClip>("Audio/TakeDamage");
         win=Resources.Load<AudioClip>("Audio/Win");
+        musicSource.Play();
     }
 
     public void playAttack()
