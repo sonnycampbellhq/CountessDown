@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Levels")
+        if (SceneManager.GetActiveScene().name == "Levels")//||SceneManager.GetActiveScene().name == "Tutorial"
         {
             inLevel=true;
         }
@@ -40,6 +40,22 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
         Time.timeScale=1;
+    }
+
+    public void onTutorialRespawn()
+    {
+        if (pauseMenuActive)
+        {
+            DestroyImmediate(GameObject.FindGameObjectWithTag("Countess"));
+            resume();
+        }
+        SceneManager.LoadScene("Tutorial");
+
+        updateHUD(0, 10);
+        updateHUD(1, 5);
+        updateHUD(2, 0);
+        deathMenu.SetActive(false);
+        deathMenuActive=false;
     }
 
     public void onExitPress()
