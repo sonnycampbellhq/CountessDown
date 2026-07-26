@@ -43,6 +43,7 @@ public class ShooterController : MonoBehaviour
             {
                 //calc direction
                 direction = countess.transform.position - transform.position;
+                gameObject.transform.up=direction;
             }
 
             shots++;
