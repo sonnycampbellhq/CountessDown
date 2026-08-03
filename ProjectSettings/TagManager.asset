@@ -19,6 +19,7 @@ TagManager:
   - Level
   - HUD
   - AudioHandler
+  - Item
   layers:
   - Default
   - TransparentFX

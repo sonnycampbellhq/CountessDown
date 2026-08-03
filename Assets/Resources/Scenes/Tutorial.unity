@@ -799,34 +799,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1500584534265608980, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: attackSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790279208235554813, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 65f56ce57ec29d0479a7f3f306fd9f39, type: 3}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Color.a
-      value: 0.9019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434828984618291125, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4524470750991164379, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -871,55 +843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Countess
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1790279208235554813, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6010458745601279965, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 810092788}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
---- !u!1 &810092787 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6010458745601279965, guid: 2c7dc306f5f0dc846ad505e10c8a5366, type: 3}
-  m_PrefabInstance: {fileID: 810092786}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &810092788
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810092787}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &965679153
 GameObject:
   m_ObjectHideFlags: 0

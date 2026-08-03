@@ -59,7 +59,7 @@ public class ShooterController : MonoBehaviour
         if (collision.tag == "Attack")
         {
             takeDamage();
-            countess.GetComponent<CountessController>().gainMoney();
+            countess.GetComponent<CountessController>().changeMoney(10);
         }
     }
 

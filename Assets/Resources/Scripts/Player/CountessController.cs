@@ -260,9 +260,34 @@ public class CountessController : MonoBehaviour
         else if(go.tag == "Money")
         {
             //money+=go.GetComponent<MoneyController>().getValue();
-            gainMoney();
+            changeMoney(10);
             Destroy(go, 0);
             audioHandler.playCoin();
+        }
+        else if(go.tag == "Item")
+        {
+            itemCheck(go, go.GetComponent<shopItemController>().getItemDetails());
+        }
+    }
+
+    void itemCheck(GameObject go, (int, int) itemDetails)
+    {
+        int itemTypeIn = itemDetails.Item1;
+        int itemPrice = itemDetails.Item2;
+
+        if (itemPrice <= money)
+        {
+            Destroy(go,0);
+            changeMoney(-itemPrice);
+
+            if (itemTypeIn == 0)
+            {
+                heal();
+            }
+            else if (itemTypeIn == 1) //add more item types, like a attack size, attack speed, speed, give block and block upgrade
+            {
+                heal();
+            }
         }
     }
 
@@ -273,9 +298,9 @@ public class CountessController : MonoBehaviour
         audioHandler.playHeal();
     }
 
-    public void gainMoney()
+    public void changeMoney(int amount)
     {
-        money+=10;
+        money+=amount;
         menuController.updateHUD(2, money);
     }
 
