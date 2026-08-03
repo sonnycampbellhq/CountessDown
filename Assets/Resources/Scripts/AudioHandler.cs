@@ -15,6 +15,7 @@ public class AudioHandler : MonoBehaviour
     AudioClip projectileShoot;
     AudioClip takeDamage;
     AudioClip win;
+    AudioClip shieldTemp;
     [SerializeField] AudioSource source;
     [SerializeField] AudioSource musicSource;
 
@@ -30,6 +31,7 @@ public class AudioHandler : MonoBehaviour
         projectileShoot=Resources.Load<AudioClip>("Audio/ProjectileShoot");
         takeDamage=Resources.Load<AudioClip>("Audio/TakeDamage");
         win=Resources.Load<AudioClip>("Audio/Win");
+        shieldTemp=Resources.Load<AudioClip>("Audio/ShieldTemp");
         musicSource.Play();
     }
 
@@ -81,5 +83,10 @@ public class AudioHandler : MonoBehaviour
     public void playWin()
     {
         source.PlayOneShot(win);
+    }
+
+    public void playShield()
+    {
+        source.PlayOneShot(shieldTemp);
     }
 }

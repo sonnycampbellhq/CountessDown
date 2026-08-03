@@ -141,7 +141,9 @@ public class CountessController : MonoBehaviour
             {
                 lastBlock = Time.time;
                 isBlocking=true;
+                audioHandler.playShield();
                 canBlock=false;
+                gameObject.GetComponent<SpriteRenderer>().color=new Color(0.35f, 0.8f, 1, 0.9f);//58CCFF;
                 //block starts
             }
         }
@@ -156,6 +158,7 @@ public class CountessController : MonoBehaviour
             else if(timeSinceBlock > blockDuration&&isBlocking)
             {
                 isBlocking=false;
+                gameObject.GetComponent<SpriteRenderer>().color=Color.white;
                 //can't block
             }
         }
